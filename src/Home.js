@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 py-16 bg-sky-50">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 py-16 bg-brand-100">
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             Welcome to Mindful Way Therapy
