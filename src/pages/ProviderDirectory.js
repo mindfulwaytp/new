@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FaCalendarCheck, FaCalendarTimes } from 'react-icons/fa';
 import { TbReportSearch } from 'react-icons/tb';
 import { IoMdVideocam } from "react-icons/io";
@@ -24,8 +24,8 @@ const genderOptions = [...new Set(allTherapists.map(t => t.gender?.trim()))]
   .filter(Boolean)
   .map(g => ({ label: g, value: g }));
 
-const Providers = () => {
-  const query = '';
+const ProvidersDirectory = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedSpecialties, setSelectedSpecialties] = useState([]);
   const [selectedInsurance, setSelectedInsurance] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState([]);
@@ -35,18 +35,45 @@ const Providers = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  useEffect(() => {
+    const getMultiValues = (key, options) => {
+      const values = searchParams.getAll(key);
+      return options.filter(opt => values.includes(opt.value));
+    };
+
+    setSelectedGender(getMultiValues('gender', genderOptions));
+    setSelectedSpecialties(getMultiValues('specialties', specialtyOptions));
+    setSelectedLocation(getMultiValues('location', locationOptions));
+    setSelectedServices(getMultiValues('services', serviceOptions));
+
+    const insurance = searchParams.get('insurance');
+    if (insurance) {
+      const match = insuranceOptions.find(opt => opt.value === insurance);
+      setSelectedInsurance(match || null);
+    }
+
+    const avail = searchParams.get('availability');
+    if (avail) {
+      const match = [
+        { value: 'all', label: 'All' },
+        { value: 'true', label: 'Accepting New Clients' },
+        { value: 'false', label: 'Not Accepting New Clients' },
+      ].find(opt => opt.value === avail);
+      setAvailability(match || { value: 'all', label: 'All' });
+    }
+  }, [searchParams]);
+
   const filteredTherapists = allTherapists.filter(t => {
-    const matchesQuery = t.name.toLowerCase().includes(query.toLowerCase()) || t.bio?.toLowerCase().includes(query.toLowerCase());
     const matchesSpecialties = selectedSpecialties.length === 0 || selectedSpecialties.every(sel => t.specialties.includes(sel.value));
     const matchesInsurance = !selectedInsurance || t.insurance.includes(selectedInsurance.value);
     const matchesLocation = selectedLocation.length === 0 || selectedLocation.every(loc => t.location.includes(loc.value));
     const matchesServices = selectedServices.length === 0 || selectedServices.every(serv => t.services.includes(serv.value));
-    const matchesGender = selectedGender.length === 0 || selectedGender.some(sel => t.gender === sel.value)
+    const matchesGender = selectedGender.length === 0 || selectedGender.some(sel => t.gender === sel.value);
     const matchesAvailability = availability.value === 'all' ||
       (availability.value === 'true' && ['yes', 'assessments only'].includes(t.acceptingClients.toLowerCase())) ||
       (availability.value === 'false' && ['no', 'assessments only'].includes(t.acceptingClients.toLowerCase()));
 
-    return matchesQuery && matchesSpecialties && matchesInsurance && matchesLocation && matchesServices && matchesGender && matchesAvailability;
+    return matchesSpecialties && matchesInsurance && matchesLocation && matchesServices && matchesGender && matchesAvailability;
   });
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -54,24 +81,36 @@ const Providers = () => {
   const currentTherapists = filteredTherapists.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredTherapists.length / itemsPerPage);
 
+  const updateMultiSelect = (key, value) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete(key);
+    (value || []).forEach(opt => newParams.append(key, opt.value));
+    setSearchParams(newParams);
+    setCurrentPage(1);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">Meet Our Providers</h1>
-      <h3 className="text-lg text-center text-gray-600 mb-6">Use the search functions below to find a provider <br />
-      Availability Updated as of July 2025</h3>
+      <h3 className="text-lg text-center text-gray-600 mb-6">
+        Use the search functions below to find a provider<br />
+        Availability Updated as of July 2025
+      </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Specialties</label><Select isMulti options={specialtyOptions} value={selectedSpecialties} onChange={(v) => { setSelectedSpecialties(v); setCurrentPage(1); }} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Insurance</label><Select options={insuranceOptions} value={selectedInsurance} onChange={(v) => { setSelectedInsurance(v); setCurrentPage(1); }} isClearable /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Location</label><Select isMulti options={locationOptions} value={selectedLocation} onChange={(v) => { setSelectedLocation(v); setCurrentPage(1); }} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Services</label><Select isMulti options={serviceOptions} value={selectedServices} onChange={(v) => { setSelectedServices(v); setCurrentPage(1); }} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Gender</label><Select isMulti options={genderOptions} value={selectedGender} onChange={(v) => { setSelectedGender(v); setCurrentPage(1); }} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Availability</label><Select options={[{ value: 'all', label: 'All' }, { value: 'true', label: 'Accepting New Clients' }, { value: 'false', label: 'Not Accepting New Clients' }]} value={availability} onChange={(v) => { setAvailability(v); setCurrentPage(1); }} isClearable={false} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Specialties</label><Select isMulti options={specialtyOptions} value={selectedSpecialties} onChange={(v) => { setSelectedSpecialties(v || []); updateMultiSelect('specialties', v); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Insurance</label><Select options={insuranceOptions} value={selectedInsurance} onChange={(v) => { setSelectedInsurance(v); const newParams = new URLSearchParams(searchParams); if (v) { newParams.set('insurance', v.value); } else { newParams.delete('insurance'); } setSearchParams(newParams); setCurrentPage(1); }} isClearable /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Location</label><Select isMulti options={locationOptions} value={selectedLocation} onChange={(v) => { setSelectedLocation(v || []); updateMultiSelect('location', v); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Services</label><Select isMulti options={serviceOptions} value={selectedServices} onChange={(v) => { setSelectedServices(v || []); updateMultiSelect('services', v); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Gender Identity</label><Select isMulti options={genderOptions} value={selectedGender} onChange={(v) => { setSelectedGender(v || []); updateMultiSelect('gender', v); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Availability</label><Select options={[{ value: 'all', label: 'All' }, { value: 'true', label: 'Accepting New Clients' }, { value: 'false', label: 'Not Accepting New Clients' }]} value={availability} onChange={(v) => { setAvailability(v); const newParams = new URLSearchParams(searchParams); newParams.set('availability', v.value); setSearchParams(newParams); setCurrentPage(1); }} /></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentTherapists.map((t, i) => (
-          <Link to={`/providers/${slugify(t.name)}`} key={i} className="bg-white border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition">
+          <Link to={`/providers/${slugify(t.name)}${window.location.search}`}
+            key={i}
+            >
             <div className="w-full aspect-[3/4] max-w-[300px] mx-auto mb-4 overflow-hidden rounded-lg">
               <img src={providerImages[t.name] || t.image || exampleImg} alt={t.name} className="w-full h-full object-cover rounded-lg shadow-sm" />
             </div>
@@ -120,4 +159,4 @@ const Providers = () => {
   );
 };
 
-export default Providers;
+export default ProvidersDirectory;

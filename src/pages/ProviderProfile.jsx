@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { IoMdVideocam } from 'react-icons/io';
 import { HiBuildingOffice2 } from 'react-icons/hi2';
 import { FaCalendarCheck, FaCalendarTimes } from 'react-icons/fa';
@@ -14,21 +14,27 @@ function slugify(text) {
 
 export default function ProviderProfile() {
   const { slug } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const provider = allTherapists.find(p => slugify(p.name) === slug);
 
-  if (!provider) {
-    return <div className="text-center mt-20 text-red-600 font-semibold">Provider not found.</div>;
-  }
+const handleBack = () => {
+    navigate(`/providers${location.search}`);
+};
+
+if (!provider) {
+  return <div className="text-center mt-20 text-red-600 font-semibold">Provider not found.</div>;
+}
 
   return (
     <>
-        <button
-  onClick={() => navigate(-1)}
-  className="ml-4 mt-6 inline-block bg-sky-700 text-white px-4 py-2 rounded-md hover:bg-sky-800 transition"
->
+      <button
+        onClick={handleBack}
+        className="ml-4 mt-6 inline-block bg-sky-700 text-white px-4 py-2 rounded-md hover:bg-sky-800 transition"
+      >
         ← Back to Directory
-        </button>
+      </button>
+
       {/* HEADER BLOCK */}
       <div className="bg-[#f3f6f9] py-12 px-4 md:px-8">
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:flex">
@@ -104,15 +110,15 @@ export default function ProviderProfile() {
 
             {/* Insurance */}
             <div className="mt-4 text-base text-gray-600">
-                <span className="font-semibold text-sky-800">Insurance:</span>
-                <div className="flex flex-wrap gap-3 mt-2 text-base text-sky-800 font-medium">
-                    {provider.insurance.map((ins, i) => (
-                        <span key={i} className="flex items-center gap-1 text-base">
-                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                            {ins}
-                        </span>
-                    ))}
-                </div>
+              <span className="font-semibold text-sky-800">Insurance:</span>
+              <div className="flex flex-wrap gap-3 mt-2 text-base text-sky-800 font-medium">
+                {provider.insurance.map((ins, i) => (
+                  <span key={i} className="flex items-center gap-1 text-base">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    {ins}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -127,7 +133,7 @@ export default function ProviderProfile() {
             {provider.about}
           </p>
         </div>
- 
+
         {/* Divider */}
         <div className="hidden md:block w-px bg-gray-200"></div>
 
