@@ -28,7 +28,7 @@ const genderOptions = [...new Set(allTherapists.map(t => t.gender?.trim()))]
 
 // Main Component
 const Providers = () => {
-  const [query, setQuery] = useState('');
+  const query = '';
   const [selectedSpecialties, setSelectedSpecialties] = useState([]);
   const [selectedInsurance, setSelectedInsurance] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState([]);
