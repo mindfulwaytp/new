@@ -29,7 +29,7 @@ function Neurodiversity() {
   <section className="space-y-4">
     <h2 className="text-3xl font-bold text-sky-700">Why Neurodivergent Affirming Care?</h2>
     <p className="text-base md:text-lg leading-relaxed">
-      In a world that often misunderstands or overlooks neurodivergent experiences, we believe in providing Neurodivergent Affirming Care. We provide a space where individuals are valued for who they are. This approach is essential for supporting neurodivergent people in a way that truly honors their unique perspectives and needs. Rather than trying to "fix" or change these traits, we focus on embracing them, helping clients leverage their strengths while navigating any challenges they may face.
+      In a world that often misunderstands or overlooks neurodivergent experiences, our providers believe in providing Neurodivergent Affirming Care. We provide a space where individuals are valued for who they are. This approach is essential for supporting neurodivergent people in a way that truly honors their unique perspectives and needs. Rather than trying to "fix" or change these traits, we focus on embracing them, helping clients leverage their strengths while navigating any challenges they may face.
     </p>
     <p className="text-base md:text-lg leading-relaxed">
         Neurodivergent Affirming Care respects and validates neurodivergent identities, recognizing that neurological differences are part of natural human diversity. Our goal is to provide compassionate, strengths-based support that empowers individuals to live authentically and thrive.
