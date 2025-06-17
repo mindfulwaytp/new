@@ -8,14 +8,12 @@ import { HiBuildingOffice2 } from "react-icons/hi2";
 import { providerImages } from '../assets/images';
 import exampleImg from '../assets/provider-example.avif';
 import '../Providers.css';
-import allTherapists from '../data/Providers'; // Assuming you have a JSON file with therapist data
+import allTherapists from '../data/Providers';
 
-// Utility to create slugs like 'ryne-evans'
 function slugify(text) {
   return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
 }
 
-// Dropdown options
 const specialtyOptions = [...new Set(allTherapists.flatMap(t => t.specialties))]
   .map(s => ({ label: s, value: s }))
   .sort((a, b) => a.label.localeCompare(b.label));
@@ -26,15 +24,16 @@ const genderOptions = [...new Set(allTherapists.map(t => t.gender?.trim()))]
   .filter(Boolean)
   .map(g => ({ label: g, value: g }));
 
-// Main Component
 const Providers = () => {
   const query = '';
   const [selectedSpecialties, setSelectedSpecialties] = useState([]);
   const [selectedInsurance, setSelectedInsurance] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
-  const [selectedGender, setSelectedGender] = useState(null);
+  const [selectedGender, setSelectedGender] = useState([]);
   const [availability, setAvailability] = useState({ value: 'all', label: 'All' });
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const filteredTherapists = allTherapists.filter(t => {
     const matchesQuery = t.name.toLowerCase().includes(query.toLowerCase()) || t.bio?.toLowerCase().includes(query.toLowerCase());
@@ -42,7 +41,7 @@ const Providers = () => {
     const matchesInsurance = !selectedInsurance || t.insurance.includes(selectedInsurance.value);
     const matchesLocation = selectedLocation.length === 0 || selectedLocation.every(loc => t.location.includes(loc.value));
     const matchesServices = selectedServices.length === 0 || selectedServices.every(serv => t.services.includes(serv.value));
-    const matchesGender = !selectedGender || t.gender === selectedGender.value;
+    const matchesGender = selectedGender.length === 0 || selectedGender.some(sel => t.gender === sel.value)
     const matchesAvailability = availability.value === 'all' ||
       (availability.value === 'true' && ['yes', 'assessments only'].includes(t.acceptingClients.toLowerCase())) ||
       (availability.value === 'false' && ['no', 'assessments only'].includes(t.acceptingClients.toLowerCase()));
@@ -50,34 +49,31 @@ const Providers = () => {
     return matchesQuery && matchesSpecialties && matchesInsurance && matchesLocation && matchesServices && matchesGender && matchesAvailability;
   });
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentTherapists = filteredTherapists.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredTherapists.length / itemsPerPage);
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">Meet Our Providers</h1>
-      <h3 className="text-lg text-center text-gray-600 mb-6">Use the search functions below to find a provider</h3>
-
+      <h3 className="text-lg text-center text-gray-600 mb-6">Use the search functions below to find a provider <br />
+      Availability Updated as of July 2025</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Specialties</label><Select isMulti options={specialtyOptions} value={selectedSpecialties} onChange={setSelectedSpecialties} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Insurance</label><Select options={insuranceOptions} value={selectedInsurance} onChange={setSelectedInsurance} isClearable /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Location</label><Select isMulti options={locationOptions} value={selectedLocation} onChange={setSelectedLocation} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Services</label><Select isMulti options={serviceOptions} value={selectedServices} onChange={setSelectedServices} /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Gender</label><Select options={genderOptions} value={selectedGender} onChange={setSelectedGender} isClearable /></div>
-        <div><label className="block font-medium text-sm text-gray-700 mb-1">Availability</label><Select options={[{ value: 'all', label: 'All' }, { value: 'true', label: 'Accepting New Clients' }, { value: 'false', label: 'Not Accepting New Clients' }]} value={availability} onChange={setAvailability} isClearable={false} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Specialties</label><Select isMulti options={specialtyOptions} value={selectedSpecialties} onChange={(v) => { setSelectedSpecialties(v); setCurrentPage(1); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Insurance</label><Select options={insuranceOptions} value={selectedInsurance} onChange={(v) => { setSelectedInsurance(v); setCurrentPage(1); }} isClearable /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Location</label><Select isMulti options={locationOptions} value={selectedLocation} onChange={(v) => { setSelectedLocation(v); setCurrentPage(1); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Services</label><Select isMulti options={serviceOptions} value={selectedServices} onChange={(v) => { setSelectedServices(v); setCurrentPage(1); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Gender</label><Select isMulti options={genderOptions} value={selectedGender} onChange={(v) => { setSelectedGender(v); setCurrentPage(1); }} /></div>
+        <div><label className="block font-medium text-sm text-gray-700 mb-1">Availability</label><Select options={[{ value: 'all', label: 'All' }, { value: 'true', label: 'Accepting New Clients' }, { value: 'false', label: 'Not Accepting New Clients' }]} value={availability} onChange={(v) => { setAvailability(v); setCurrentPage(1); }} isClearable={false} /></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredTherapists.map((t, i) => (
-          <Link
-            to={`/providers/${slugify(t.name)}`}
-            key={i}
-            className="bg-white border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition"
-          >
+        {currentTherapists.map((t, i) => (
+          <Link to={`/providers/${slugify(t.name)}`} key={i} className="bg-white border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition">
             <div className="w-full aspect-[3/4] max-w-[300px] mx-auto mb-4 overflow-hidden rounded-lg">
-              <img
-                src={providerImages[t.name] || t.image || exampleImg}
-                alt={t.name}
-                className="w-full h-full object-cover rounded-lg shadow-sm"
-                />
+              <img src={providerImages[t.name] || t.image || exampleImg} alt={t.name} className="w-full h-full object-cover rounded-lg shadow-sm" />
             </div>
             <div className="flex flex-col items-center space-y-4">
               <h2 className="text-lg font-semibold text-sky-700">
@@ -104,6 +100,22 @@ const Providers = () => {
           </Link>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1 rounded-md border ${
+                currentPage === i + 1 ? 'bg-sky-700 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
