@@ -16,11 +16,15 @@ function slugify(text) {
 }
 
 // Dropdown options
-const specialtyOptions = [...new Set(allTherapists.flatMap(t => t.specialties))].map(s => ({ label: s, value: s }));
+const specialtyOptions = [...new Set(allTherapists.flatMap(t => t.specialties))]
+  .map(s => ({ label: s, value: s }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 const insuranceOptions = [...new Set(allTherapists.flatMap(t => t.insurance))].map(i => ({ label: i, value: i }));
 const locationOptions = [...new Set(allTherapists.flatMap(t => t.location))].map(l => ({ label: l, value: l }));
 const serviceOptions = [...new Set(allTherapists.flatMap(t => t.services))].map(s => ({ label: s, value: s }));
-const genderOptions = [...new Set(allTherapists.map(t => t.gender))].map(g => ({ label: g, value: g }));
+const genderOptions = [...new Set(allTherapists.map(t => t.gender?.trim()))]
+  .filter(Boolean)
+  .map(g => ({ label: g, value: g }));
 
 // Main Component
 const Providers = () => {
@@ -51,13 +55,6 @@ const Providers = () => {
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">Meet Our Providers</h1>
       <h3 className="text-lg text-center text-gray-600 mb-6">Use the search functions below to find a provider</h3>
 
-      <input
-        type="text"
-        className="w-full max-w-md mx-auto block px-4 py-2 border border-gray-300 rounded-md shadow-sm mb-6 text-gray-800 focus:ring-sky-500 focus:border-sky-500"
-        placeholder="Search by name or keyword..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <div><label className="block font-medium text-sm text-gray-700 mb-1">Specialties</label><Select isMulti options={specialtyOptions} value={selectedSpecialties} onChange={setSelectedSpecialties} /></div>
@@ -75,8 +72,12 @@ const Providers = () => {
             key={i}
             className="bg-white border border-gray-200 rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition"
           >
-            <div className="aspect-[4/3] w-full mb-4">
-              <img src={providerImages[t.name] || t.image || exampleImg} alt={`Therapist ${t.name}`} className="w-full h-[375px] object-cover object-center rounded-lg mb-4" />
+            <div className="w-full aspect-[3/4] max-w-[300px] mx-auto mb-4 overflow-hidden rounded-lg">
+              <img
+                src={providerImages[t.name] || t.image || exampleImg}
+                alt={t.name}
+                className="w-full h-full object-cover rounded-lg shadow-sm"
+                />
             </div>
             <div className="flex flex-col items-center space-y-4">
               <h2 className="text-lg font-semibold text-sky-700">

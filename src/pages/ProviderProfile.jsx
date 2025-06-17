@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { IoMdVideocam } from 'react-icons/io';
 import { HiBuildingOffice2 } from 'react-icons/hi2';
 import { FaCalendarCheck, FaCalendarTimes } from 'react-icons/fa';
@@ -14,6 +14,7 @@ function slugify(text) {
 
 export default function ProviderProfile() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const provider = allTherapists.find(p => slugify(p.name) === slug);
 
   if (!provider) {
@@ -22,6 +23,12 @@ export default function ProviderProfile() {
 
   return (
     <>
+        <button
+  onClick={() => navigate(-1)}
+  className="ml-4 mt-6 inline-block bg-sky-700 text-white px-4 py-2 rounded-md hover:bg-sky-800 transition"
+>
+        ← Back to Directory
+        </button>
       {/* HEADER BLOCK */}
       <div className="bg-[#f3f6f9] py-12 px-4 md:px-8">
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:flex">
@@ -112,20 +119,20 @@ export default function ProviderProfile() {
       </div>
 
       {/* ABOUT + SPECIALTIES BLOCK */}
-      <div className="mt-10 bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+      <div className="flex-col-reverse mt-10 bg-white p-6 rounded-xl shadow-sm flex md:flex-row gap-8 max-w-6xl mx-auto">
         {/* Left: About */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 order-1 md:order-1">
           <h2 className="text-2xl font-bold text-sky-800 mb-2">About</h2>
           <p className="text-base text-gray-700 leading-relaxed whitespace-pre-line">
             {provider.about}
           </p>
         </div>
-
+ 
         {/* Divider */}
         <div className="hidden md:block w-px bg-gray-200"></div>
 
         {/* Right: Specialties */}
-        <div className="md:w-1/2 space-y-6">
+        <div className="md:w-1/2 space-y-6 order-2 md:order-2">
           {provider.topSpecialties?.length > 0 && (
             <div>
               <h2 className="text-2xl font-bold text-sky-800 mb-2">Primary Specialties :</h2>
