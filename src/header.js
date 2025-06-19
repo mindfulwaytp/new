@@ -6,13 +6,13 @@ export default function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const navItems = [
+  const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Providers', path: '/providers' },
-    { label: 'Work With Us', path: '/jobs' }, // <-- fixed
+    { label: 'Work With Us', path: '/jobs' },
     { label: 'Neurodiversity', path: '/neurodiversity' },
     { label: 'Services', path: '#services' },
-    { label: 'Get Started', path: '#get-started' },
+    { label: 'Get Started', path: '/contact' },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Header() {
                 <Link
                   key={idx}
                   to={item.path}
-                  className={`${
+                  className={`$ {
                     location.pathname === item.path
                       ? 'underline underline-offset-4'
                       : ''
@@ -78,18 +78,24 @@ export default function Header() {
 
           {/* Mobile Nav */}
           {mobileMenuOpen && (
-            <nav className="flex flex-col mt-6 gap-4 md:hidden text-sm font-semibold font-serif">
+            <div className="fixed inset-0 bg-white text-black z-50 flex flex-col px-6 py-8 space-y-6 text-lg font-medium overflow-y-auto">
+              {/* Close Button */}
+              <button
+                className="absolute top-4 right-4 text-3xl"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                &times;
+              </button>
+
+              {/* Navigation Links */}
               {navItems.map((item, idx) =>
                 item.path.startsWith('/') ? (
                   <Link
                     key={idx}
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`${
-                      location.pathname === item.path
-                        ? 'underline underline-offset-4'
-                        : ''
-                    } hover:text-sky-200 transition`}
+                    className="border-b pb-3 border-gray-200"
                   >
                     {item.label}
                   </Link>
@@ -98,13 +104,13 @@ export default function Header() {
                     key={idx}
                     href={item.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="hover:text-sky-200 transition"
+                    className="border-b pb-3 border-gray-200"
                   >
                     {item.label}
                   </a>
                 )
               )}
-            </nav>
+            </div>
           )}
         </div>
       </div>

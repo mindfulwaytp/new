@@ -25,10 +25,10 @@ export default function Internships() {
 
       <h3 className="text-xl font-bold text-sky-700 mt-8 mb-2">We Value Candidates Who:</h3>
         <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-            <li>A passion for learning and professional development</li>
-            <li>Interest in working with diverse and underserved communities</li>
-            <li>A collaborative mindset and willingess to contrinute to a dynamic team enviroment.</li>
-            <li>A willingness to challenge themselves.</li>
+            <li>Have a passion for learning and professional development</li>
+            <li>Are interested and have a passioon for working with diverse and underserved communities</li>
+            <li>Bring a collaborative mindset and willingess to contrinute to a dynamic team enviroment.</li>
+            <li>Come with a willingness to learn challenge themselves.</li>
         </ul>
 
       <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">As a Student-Intern, You Will:</h3>
@@ -44,56 +44,33 @@ export default function Internships() {
         <li>All marketing to ensure a steady stream of referrals, and front-office support!</li>
         <li>Weekly supervision (individual and/or dyadic)</li>
         <li>Ability to idenitfy and work with your preferred clientele (based on business needs)</li>
-        <li>Marketing to help gain clients.</li>
       </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Expectations:</h3>
+      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Hour Expectations and Requirements</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li>Part-time: minimum 12 clients per week (scheduling 15)</li>
-        <li>Full-time: minimum 22 clients per week (scheduling 25)</li>
-        <li className="italic ml-4">Note: providing assessments counts towards these minimum hours; exact ratio will be discussed during interview</li>
+        <li>Practicum: 3-5 clients per week with a minimum of 7 hours of availability.</li>
+        <li>Internship: 12-15 clients per week with 15-20 hours of availability.</li>
+        <li className="italic ml-4">These hour requirements help to account for training, shadowing, our business needs and cancellations during your internship experience.</li>
+        <li className="italic ml-4">Minimum hour requirements may vary based on your specific program including any specialties, and the length of your placement. These are minium expectations, even if they result in you having more than the minimum hour requirements.</li>
       </ul>
 
       <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Location</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li className="italic">Remote/Hybrid to start with the possibility of in-person in the future</li>
+        <li>Hybrid</li>
       </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Salary Range</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li>Starting at $42.75 for associates (increase after 6 months)</li>
-        <li>Starting at $52.75 for fully-licensed (increase after 6 months)</li>
-        <li>Admin rate: $30/hour (1 hour per 5 hours worked; max of 15 hours per month)</li>
-        <li>Sliding scale and pro-bono is a reduced rate</li>
-        <li className="italic ml-4">Assessments are paid at your hourly rate + a set rate per written evaluation</li>
-      </ul>
-
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Responsibilities</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li>Provide individual and couples therapy sessions to clients, with a focus on LGBTQ+ affirming care</li>
-        <li>Conduct comprehensive patient assessments utilizing intake forms and assessment questionnaires</li>
-        <li>Maintain accurate medical documentation and adhere to HIPAA regulations</li>
-        <li>Educate clients and families about mental health resources and coping strategies</li>
-        <li>Stay up-to-date on best practices and research in LGBTQ+ affirmative therapy</li>
-        <li>Coordinate care and collaborate with community agencies or external providers when necessary</li>
-      </ul>
-
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Minimum Requirements</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li>Master's degree in Marriage and Family Therapy, Clinical Mental Health Counseling, or Social Work</li>
-        <li>Must have completed an internship that meets state requirements</li>
-        <li>Associate license (LMFTA, LMHCA, LSWAIC) in the state of Washington</li>
-        <li>Experience working with LGBTQ+ clients and strong understanding of affirmative therapy</li>
-        <li>Excellent communication and interpersonal skills</li>
-        <li>Ability to work independently and as part of a team</li>
-      </ul>
-
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Preferred</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
-        <li>Fully licensed therapist in Washington</li>
-        <li>Physically located in Washington State</li>
-        <li>Personal/lived experience with the LGBTQ+ community</li>
-      </ul>
+      <h2 className="text-xl font-semibold text-sky-700 mt-8 mb-2">About Ryne, the Owner of Mindful Way Therapy</h2>
+        <p className="text-gray-700 mb-6">
+        Ryne Evans is a Licensed Marriage and Family Therapist in Washington. He graduated from NorthCentral University (Now National University) 
+        in 2019 an started a part-time private practice in January 2020 while working in community mental health. In 2022, Ryne shifted to working full time 
+        in his private practice, and became fully licensed in June 2022.
+        </p>
+  
+        <p className="text-gray-700 mb-6">
+        Since early in his education as a therapist, Ryne always wanted to own his own practice with a specialization of working with the LGBTQ+ community, 
+        and when his husband joined the practice in the Fall of 2023, the focus expanded to working with the neurodivergent community. In his work, Ryne practices
+        from a relational and psychodynamic lens, meaning he sees clients as part of a system, rather than just an indiviudal.
+        </p>
 
       <p className="text-gray-600 mt-4 italic">
         Note: In compliance with Seattle's Fair Chance Employment Ordinance, we do not inquire about criminal backgrounds in the hiring process.

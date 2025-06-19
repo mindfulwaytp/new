@@ -31,10 +31,10 @@ function JobBoard() {
     <div className="px-4 py-12 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-light mb-6">Employment Opportunities</h1>
+        <h1 className="text-3xl md:text-5xl font-light mb-6">Employment & Internship Opportunities</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
-          Mindful Way Therapy is looking for highly qualified master's level mental health clinicians of all specialties
-          (LMFT/A, LMHC/A, LICSW/LSWAIC) to join our expanding group practice. By working at Mindful Way, you will be part
+          Mindful Way Therapy is looking for highly qualified master's level mental health clinicians, of all specialties
+          (LMFT/A, LMHC/A, LICSW/LSWAIC), and student interns, to join our expanding group practice. By working at Mindful Way, you will be part
           of a team of clinicians who are excited to work with historically underserved clinical populations, including the
           LGBTQ+ community, BIPOC, and neurodivergent individuals.
         </p>
@@ -45,7 +45,7 @@ function JobBoard() {
             className="w-full h-auto rounded-lg shadow-md object-cover"
           />
         </div>
-        <h1 className="text-4xl md:text-5xl font-light mt-8 mb-6">About Mindful Way Therapy</h1>
+        <h1 className="text-3xl md:text-5xl font-light mt-8 mb-6">About Mindful Way Therapy</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
             Mindful Way Therapy is a queer-owned group practice in Seattle, WA, in the heart of the University District. We offer individual, family and couples therapy, as well as ADHD and Autism evaluations, as well as gender-affirming care letters for those seeking medical transition interventions. 
             
@@ -56,6 +56,11 @@ function JobBoard() {
         </p>
       </div>
 
+      <div className="text-center mt-16">
+        <h2 className="text-2xl font-bold text-sky-700 mb-6 text-center">Voices from Our Team</h2>
+
+      </div>
+      
       {/* Job Listings Section */}
       <div className="text-center mt-16">
         <h2 className="text-2xl font-bold text-sky-700 mb-6 text-center">Current Employment and Internship Openings</h2>
