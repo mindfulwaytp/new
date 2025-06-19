@@ -1,6 +1,7 @@
 import React from 'react';
 import therapyScene from './assets/therapy-scene.avif';
 import therapyOffice from './assets/therapy-office.avif';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -55,12 +56,12 @@ function Home() {
           </ul>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
-            <a
-              href="/providers"
+            <Link
+              to="/providers"
               className="px-5 py-3 border border-gray-400 rounded-lg text-gray-800 hover:border-sky-500 hover:text-sky-700 transition inline-flex items-center gap-2"
             >
               <span>👥</span> Our Providers
-            </a>
+            </Link>
             <a
               href="/rates"
               className="px-5 py-3 border border-gray-400 rounded-lg text-gray-800 hover:border-sky-500 hover:text-sky-700 transition inline-flex items-center gap-2"

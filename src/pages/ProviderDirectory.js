@@ -108,35 +108,76 @@ const ProvidersDirectory = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentTherapists.map((t, i) => (
-          <Link to={`/providers/${slugify(t.name)}${window.location.search}`}
-            key={i}
-            >
-            <div className="w-full aspect-[3/4] max-w-[300px] mx-auto mb-4 overflow-hidden rounded-lg">
-              <img src={providerImages[t.name] || t.image || exampleImg} alt={t.name} className="w-full h-full object-cover rounded-lg shadow-sm" />
-            </div>
-            <div className="flex flex-col items-center space-y-4">
-              <h2 className="text-lg font-semibold text-sky-700">
-                {t.name} {t.license && (<span className="text-sm text-gray-800">({t.license})</span>)} {t.pronouns && (<span className="text-sm text-gray-600 ml-1">({t.pronouns})</span>)}
-              </h2>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-700">
-                {t.location.includes('Telehealth') && (<span className="flex items-center gap-1"><IoMdVideocam /> Telehealth</span>)}
-                {t.location.includes('U-District') && (<span className="flex items-center gap-1"><HiBuildingOffice2 /> U-District</span>)}
-              </div>
-              <div className="text-sm font-medium text-gray-700">
-                {t.acceptingClients?.toLowerCase() === 'yes' && (<span className="flex items-center justify-center text-green-600 gap-1"><FaCalendarCheck /> Accepting New Clients</span>)}
-                {t.acceptingClients?.toLowerCase() === 'assessments only' && (<span className="flex items-center justify-center text-orange-400 gap-1"><TbReportSearch /> Assessments Only</span>)}
-                {t.acceptingClients?.toLowerCase() === 'no' && (<span className="flex items-center justify-center text-red-600 gap-1"><FaCalendarTimes /> Waitlist</span>)}
-              </div>
-              <ul className="flex flex-wrap justify-center gap-2">
-                {(t.topSpecialties || []).map((spec, j) => (
-                  <li key={j} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">{spec}</li>
-                ))}
-              </ul>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-gray-800">Insurance:</strong> {t.insurance.join(', ')}
-              </p>
-            </div>
-          </Link>
+        <Link
+          to={`/providers/${slugify(t.name)}${window.location.search}`}
+          key={i}
+          className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition p-4 flex flex-col items-center text-center max-w-sm mx-auto"
+        >
+          <div className="w-full aspect-[5/6] max-w-[300px] mx-auto overflow-hidden rounded-lg mb-2">
+            <img
+              src={providerImages[t.name] || t.image || exampleImg}
+              alt={t.name}
+              className="w-full h-full object-cover rounded-lg shadow-sm"
+            />
+          </div>
+
+          <h2 className="text-lg font-semibold text-sky-700 mt-2">
+            {t.name}
+            {t.license && (
+              <span className="text-sm text-gray-800 ml-1">({t.license})</span>
+            )}
+            {t.pronouns && (
+              <span className="text-sm text-gray-600 ml-1">({t.pronouns})</span>
+            )}
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-3 text-sm text-gray-700 mt-2">
+            {t.location.includes('Telehealth') && (
+              <span className="flex items-center gap-1">
+                <IoMdVideocam /> Telehealth
+              </span>
+            )}
+            {t.location.includes('U-District') && (
+              <span className="flex items-center gap-1">
+                <HiBuildingOffice2 /> U-District
+              </span>
+            )}
+          </div>
+
+          <div className="text-sm font-medium text-gray-700 mt-2">
+            {t.acceptingClients?.toLowerCase() === 'yes' && (
+              <span className="flex items-center justify-center text-green-600 gap-1">
+                <FaCalendarCheck /> Accepting New Clients
+              </span>
+            )}
+            {t.acceptingClients?.toLowerCase() === 'assessments only' && (
+              <span className="flex items-center justify-center text-orange-400 gap-1">
+                <TbReportSearch className="text-lg" /> Assessments Only
+              </span>
+            )}
+            {t.acceptingClients?.toLowerCase() === 'no' && (
+              <span className="flex items-center justify-center text-red-600 gap-1">
+                <FaCalendarTimes /> Waitlist
+              </span>
+            )}
+          </div>
+
+          <ul className="flex flex-wrap justify-center gap-2 mt-3">
+            {(t.topSpecialties || []).map((spec, j) => (
+              <li
+                key={j}
+                className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
+              >
+                {spec}
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-sm text-gray-700 leading-relaxed mt-3">
+            <strong className="text-gray-800">Insurance:</strong>{' '}
+            {t.insurance.join(', ')}
+          </p>
+        </Link>
         ))}
       </div>
 

@@ -6,10 +6,10 @@ export default function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems = [
+    const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Providers', path: '/providers' },
-    { label: 'Work With Us', path: '#work' },
+    { label: 'Work With Us', path: '/jobs' }, // <-- fixed
     { label: 'Neurodiversity', path: '/neurodiversity' },
     { label: 'Services', path: '#services' },
     { label: 'Get Started', path: '#get-started' },
