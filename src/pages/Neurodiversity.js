@@ -13,7 +13,7 @@ function Neurodiversity() {
         style={{ backgroundImage: `url(${balloons})` }}
       >
         <div className="bg-white/80 text-black px-6 py-8 rounded-xl shadow-md max-w-2xl text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl  mb-4">
             Neurodivergent Affirming Care
           </h1>
           <p className="text-base md:text-lg leading-relaxed">
@@ -27,7 +27,7 @@ function Neurodiversity() {
 
   {/* Section: Our Approach */}
   <section className="space-y-4">
-    <h2 className="text-3xl font-bold text-sky-700">Why Neurodivergent Affirming Care?</h2>
+    <h2 className="text-3xl  text-sky-700">Why Neurodivergent Affirming Care?</h2>
     <p className="text-base md:text-lg leading-relaxed">
       In a world that often misunderstands or overlooks neurodivergent experiences, our providers believe in providing Neurodivergent Affirming Care. We provide a space where individuals are valued for who they are. This approach is essential for supporting neurodivergent people in a way that truly honors their unique perspectives and needs. Rather than trying to "fix" or change these traits, we focus on embracing them, helping clients leverage their strengths while navigating any challenges they may face.
     </p>
@@ -43,7 +43,7 @@ function Neurodiversity() {
     <div className="flex flex-col space-y-6">
       <div className="flex items-start gap-4">
         <Autism1 className="w-[135px] h-[137px] shrink-0" />
-        <h3 className="text-xl font-semibold text-gray-900 leading-snug">
+        <h3 className="text-xl  text-gray-900 leading-snug">
           Neurodivergent Affirming<br />Therapy
         </h3>
       </div>
@@ -59,7 +59,7 @@ function Neurodiversity() {
     <div className="flex flex-col space-y-6">
       <div className="flex items-start gap-4">
         <Autism2 className="w-[135px] h-[137px] shrink-0" />
-        <h3 className="text-xl font-semibold text-gray-900 leading-snug">
+        <h3 className="text-xl  text-gray-900 leading-snug">
           ADHD & Autism Evaluations
         </h3>
       </div>

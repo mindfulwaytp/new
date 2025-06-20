@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Page Title */}
-      <h1 className="text-3xl font-bold text-sky-700 mb-4">New Client Inquiry</h1>
+      <h1 className="text-3xl  text-sky-700 mb-4">New Client Inquiry</h1>
 
     {/* Intro Text */}
     <p className="mb-6 text-gray-700">
@@ -23,7 +23,7 @@ export default function ContactPage() {
 
     {/* Location or Details */}
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-sky-700">Our Location</h2>
+        <h2 className="text-lg  text-sky-700">Our Location</h2>
         <p className="text-gray-700">
           We provide services across Washington via telehealth. Our in-person office is located in the U-District of Seattle.
         </p>

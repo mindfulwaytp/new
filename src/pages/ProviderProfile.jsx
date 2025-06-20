@@ -23,7 +23,7 @@ const handleBack = () => {
 };
 
 if (!provider) {
-  return <div className="text-center mt-20 text-red-600 font-semibold">Provider not found.</div>;
+  return <div className="text-center mt-20 text-red-600 ">Provider not found.</div>;
 }
 
   return (
@@ -49,16 +49,16 @@ if (!provider) {
 
           {/* Right: Info */}
           <div className="md:w-2/3 p-6">
-            <h1 className="text-3xl font-bold text-brand-500">
+            <h1 className="text-3xl  text-brand-500">
               {provider.name}
               {provider.license && (
-                <span className="text-2xl font-bold text-brand-500 ml-2">, {provider.license}</span>
+                <span className="text-2xl  text-brand-500 ml-2">, {provider.license}</span>
               )}
             </h1>
             {provider.pronouns && <p className="text-lg text-gray-800 mt-1">({provider.pronouns})</p>}
 
             {/* Location */}
-            <div className="flex flex-wrap gap-4 mt-4 text-base font-medium text-sky-800">
+            <div className="flex flex-wrap gap-4 mt-4 text-base  text-sky-800">
               {provider.location?.includes('U-District') && (
                 <span className="flex items-center gap-1">
                   <HiBuildingOffice2 />
@@ -74,22 +74,22 @@ if (!provider) {
             </div>
 
             {/* Availability */}
-            <div className="flex items-center gap-2 mt-4 text-base font-bold text-sky-800">
+            <div className="flex items-center gap-2 mt-4 text-base  text-sky-800">
               <span>Availability:</span>
               {provider.acceptingClients?.toLowerCase() === 'yes' && (
-                <span className="flex items-center gap-1 text-green-600 font-medium">
+                <span className="flex items-center gap-1 text-green-600 ">
                   <FaCalendarCheck />
                   Accepting New Clients
                 </span>
               )}
               {provider.acceptingClients?.toLowerCase() === 'assessments only' && (
-                <span className="flex items-center gap-1 text-orange-500 font-medium">
+                <span className="flex items-center gap-1 text-orange-500 ">
                   <TbReportSearch />
                   Assessments Only
                 </span>
               )}
               {provider.acceptingClients?.toLowerCase() === 'no' && (
-                <span className="flex items-center gap-1 text-red-600 font-medium">
+                <span className="flex items-center gap-1 text-red-600 ">
                   <FaCalendarTimes />
                   Waitlist
                 </span>
@@ -97,7 +97,7 @@ if (!provider) {
             </div>
 
             {/* Services */}
-            <div className="flex flex-wrap gap-4 mt-4 text-base text-sky-800 font-medium">Services:
+            <div className="flex flex-wrap gap-4 mt-4 text-base text-sky-800 ">Services:
               {provider.services?.map((s, i) => (
                 <span key={i}>
                   {s}
@@ -110,8 +110,8 @@ if (!provider) {
 
             {/* Insurance */}
             <div className="mt-4 text-base text-gray-600">
-              <span className="font-semibold text-sky-800">Insurance:</span>
-              <div className="flex flex-wrap gap-3 mt-2 text-base text-sky-800 font-medium">
+              <span className=" text-sky-800">Insurance:</span>
+              <div className="flex flex-wrap gap-3 mt-2 text-base text-sky-800 ">
                 {provider.insurance.map((ins, i) => (
                   <span key={i} className="flex items-center gap-1 text-base">
                     <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -128,7 +128,7 @@ if (!provider) {
       <div className="flex-col-reverse mt-10 bg-white p-6 rounded-xl shadow-sm flex md:flex-row gap-8 max-w-6xl mx-auto">
         {/* Left: About */}
         <div className="md:w-1/2 order-1 md:order-1">
-          <h2 className="text-2xl font-bold text-sky-800 mb-2">About</h2>
+          <h2 className="text-2xl  text-sky-800 mb-2">About</h2>
           <p className="text-base text-gray-700 leading-relaxed whitespace-pre-line">
             {provider.about}
           </p>
@@ -141,8 +141,8 @@ if (!provider) {
         <div className="md:w-1/2 space-y-6 order-2 md:order-2">
           {provider.topSpecialties?.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold text-sky-800 mb-2">Primary Specialties :</h2>
-              <div className="flex flex-wrap gap-3 text-base font-medium text-sky-700">
+              <h2 className="text-2xl  text-sky-800 mb-2">Primary Specialties :</h2>
+              <div className="flex flex-wrap gap-3 text-base  text-sky-700">
                 {provider.topSpecialties.map((s, i) => (
                   <span key={i} className="flex items-center gap-1">
                     <span className="w-2 h-2 bg-green-500 rounded-full"></span> {s}
@@ -154,8 +154,8 @@ if (!provider) {
 
           {provider.specialties?.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold text-sky-800 mb-2">Also Experienced With :</h2>
-              <div className="flex flex-wrap gap-3 text-base text-sky-700 font-medium">
+              <h2 className="text-2xl  text-sky-800 mb-2">Also Experienced With :</h2>
+              <div className="flex flex-wrap gap-3 text-base text-sky-700 ">
                 {provider.specialties
                   .filter(s => !provider.topSpecialties?.includes(s))
                   .map((s, i) => (

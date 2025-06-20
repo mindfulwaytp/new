@@ -11,11 +11,11 @@ export default function Internships() {
       >
         ← Back to Job Listings
       </button>
-      <h1 className="text-3xl font-bold text-sky-800 mb-4">
+      <h1 className="text-3xl  text-sky-800 mb-4">
         Master's Level Student Internship
       </h1>
 
-        <h2 className="text-2xl text-center font-bold text-sky-800 mb-4">About our Internships</h2>    
+        <h2 className="text-2xl text-center  text-sky-800 mb-4">About our Internships</h2>    
             <p className="text-gray-700 mb-6">
                 Mindful Way Therapy is excted to invite Master's-level students in Clinical Mental Health Counseling (CMHC), Marriage (Couples) and Family Therapy (MFT/CFT) programs to apply
                 for an internship with us and become part of a team that strives to meet the needs of our community in working with diverse and marginalized communities. We are a practice that 
@@ -23,7 +23,7 @@ export default function Internships() {
                 psychotherapy while working alongside experienced professsionals in a safe and supportive enviroment.
             </p>
 
-      <h3 className="text-xl font-bold text-sky-700 mt-8 mb-2">We Value Candidates Who:</h3>
+      <h3 className="text-xl  text-sky-700 mt-8 mb-2">We Value Candidates Who:</h3>
         <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
             <li>Have a passion for learning and professional development</li>
             <li>Are interested and have a passioon for working with diverse and underserved communities</li>
@@ -31,14 +31,14 @@ export default function Internships() {
             <li>Come with a willingness to learn challenge themselves.</li>
         </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">As a Student-Intern, You Will:</h3>
+      <h3 className="text-xl  text-sky-700 mt-8 mb-2">As a Student-Intern, You Will:</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Provide direct counseling services, including group and/or couples and family therapy</li>
         <li>Participate in weekly individual and/or dyadic supervision with our owner, Ryne Evans, MA, LMFT or our Clinical Supervisor, Troy Weber, MA, LMFT</li>              
         <li>Complete documentation including: intakes, treatment plans and weekly progress notes.</li>
         </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Benefits</h3>
+      <h3 className="text-xl  text-sky-700 mt-8 mb-2">Benefits</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Training opportunities, including ADHD assessments (open to students during their last 6 months of placement)</li>
         <li>All marketing to ensure a steady stream of referrals, and front-office support!</li>
@@ -46,7 +46,7 @@ export default function Internships() {
         <li>Ability to idenitfy and work with your preferred clientele (based on business needs)</li>
       </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Hour Expectations and Requirements</h3>
+      <h3 className="text-xl  text-sky-700 mt-8 mb-2">Hour Expectations and Requirements</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Practicum: 3-5 clients per week with a minimum of 7 hours of availability.</li>
         <li>Internship: 12-15 clients per week with 15-20 hours of availability.</li>
@@ -54,12 +54,12 @@ export default function Internships() {
         <li className="italic ml-4">Minimum hour requirements may vary based on your specific program including any specialties, and the length of your placement. These are minium expectations, even if they result in you having more than the minimum hour requirements.</li>
       </ul>
 
-      <h3 className="text-xl font-semibold text-sky-700 mt-8 mb-2">Location</h3>
+      <h3 className="text-xl  text-sky-700 mt-8 mb-2">Location</h3>
       <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Hybrid</li>
       </ul>
 
-      <h2 className="text-xl font-semibold text-sky-700 mt-8 mb-2">About Ryne, the Owner of Mindful Way Therapy</h2>
+      <h2 className="text-xl  text-sky-700 mt-8 mb-2">About Ryne, the Owner of Mindful Way Therapy</h2>
         <p className="text-gray-700 mb-6">
         Ryne Evans is a Licensed Marriage and Family Therapist in Washington. He graduated from NorthCentral University (Now National University) 
         in 2019 an started a part-time private practice in January 2020 while working in community mental health. In 2022, Ryne shifted to working full time 
@@ -81,7 +81,7 @@ export default function Internships() {
           href="https://form.jotform.com/251684509750059"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-sky-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-sky-700 transition"
+          className="inline-block bg-sky-700 text-white px-6 py-3 rounded-lg  hover:bg-sky-700 transition"
         >
           Apply Now
         </a>

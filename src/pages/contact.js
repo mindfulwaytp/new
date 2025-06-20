@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Page Title */}
-      <h1 className="text-3xl font-bold text-sky-700 mb-4">Contact Us</h1>
+      <h1 className="text-3xl  text-sky-700 mb-4">Contact Us</h1>
 
       {/* Intro Text */}
       <p className="mb-6 text-gray-700">

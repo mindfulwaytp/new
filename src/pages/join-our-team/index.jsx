@@ -31,7 +31,7 @@ function JobBoard() {
     <div className="px-4 py-12 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-light mb-6">Employment & Internship Opportunities</h1>
+        <h1 className="text-4xl md:text-5xl  mb-6">Employment & Internship Opportunities</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
           Mindful Way Therapy is looking for highly qualified master's level mental health clinicians of all specialties
           (LMFT/A, LMHC/A, LICSW/LSWAIC), as well as masters level student interns, to join our expanding group practice. By working at Mindful Way, you will be part
@@ -45,7 +45,7 @@ function JobBoard() {
             className="w-full h-auto rounded-lg shadow-md object-cover"
           />
         </div>
-        <h1 className="text-3xl md:text-5xl font-light mt-8 mb-6">About Mindful Way Therapy</h1>
+        <h1 className="text-3xl md:text-5xl  mt-8 mb-6">About Mindful Way Therapy</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
             Mindful Way Therapy is a queer-owned group practice in Seattle, WA, in the heart of the University District. We offer individual, family and couples therapy, as well as ADHD and Autism evaluations, as well as gender-affirming care letters for those seeking medical transition interventions. 
             
@@ -57,13 +57,13 @@ function JobBoard() {
       </div>
 
       <div className="text-center mt-16">
-        <h2 className="text-2xl font-bold text-sky-700 mb-6 text-center">Voices from Our Team</h2>
+        <h2 className="text-2xl  text-sky-700 mb-6 text-center">Voices from Our Team</h2>
 
       </div>
       
       {/* Job Listings Section */}
       <div className="text-center mt-16">
-        <h2 className="text-2xl font-bold text-sky-700 mb-6 text-center">Current Employment and Internship Openings</h2>
+        <h2 className="text-2xl  text-sky-700 mb-6 text-center">Current Employment and Internship Openings</h2>
         <p className="italic text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto mb-6">
             Our Fall 2025 internship positions are full. We are accepting applications for Winter 2025 (For a Nov-Jan start and begin interviewing in September)
         </p>
@@ -74,9 +74,9 @@ function JobBoard() {
               to={`/join-our-team/${job.id}`}
               className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-md transition"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-1">{job.title}</h3>
-              <p className="text-base font-semibold text-sky-700 mb-1">{job.location}</p>
-              <p className="text-base font-semibold text-sky-700 mb-2">{job.type}</p>
+              <h3 className="text-xl  text-gray-800 mb-1">{job.title}</h3>
+              <p className="text-base  text-sky-700 mb-1">{job.location}</p>
+              <p className="text-base  text-sky-700 mb-2">{job.type}</p>
               <p className="text-gray-700 text-base">{job.summary}</p>
             </Link>
           ))}

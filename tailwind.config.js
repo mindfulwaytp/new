@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
+        figtree: ['Figtree', 'sans-serif'],
+        cal: ['"Cal-Sans"', 'sans-serif']
       },
       colors: {
         brand: {

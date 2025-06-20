@@ -9,7 +9,7 @@ function Home() {
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 py-16 bg-brand-100">
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl  text-gray-900 mb-4">
             Welcome to Mindful Way Therapy
           </h1>
           <p className="text-xl text-gray-700 leading-relaxed">Your Compassionate Space for Mental</p>
@@ -36,9 +36,9 @@ function Home() {
         </div>
 
         <div className="md:w-1/2 space-y-6">
-          <h2 className="text-3xl font-bold text-gray-900">About Us</h2>
+          <h2 className="text-3xl  text-gray-900">About Us</h2>
 
-          <h3 className="text-xl font-semibold text-sky-700">Our Approach</h3>
+          <h3 className="text-xl  text-sky-700">Our Approach</h3>
           <p className="text-gray-700 leading-relaxed">
             We specialize in working with neurodivergent individuals, including those with autism, ADHD, and other neurodiverse conditions. Our therapists are trained to understand the unique challenges and strengths of neurodivergent clients.
           </p>
@@ -46,7 +46,7 @@ function Home() {
             At Mindful Way Therapy, we're dedicated to providing compassionate and effective therapy services to individuals in the Seattle area and beyond...
           </p>
 
-          <h3 className="text-xl font-semibold text-sky-700">Why Choose Us?</h3>
+          <h3 className="text-xl  text-sky-700">Why Choose Us?</h3>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>Personalized and affirming therapy tailored to your unique needs</li>
             <li>Experienced therapists who understand the challenges you're facing</li>
