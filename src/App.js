@@ -10,12 +10,13 @@ import LGBTQTherapistJob from './pages/join-our-team/lgbtq-therapist';
 import ADHDTherapistJob from './pages/join-our-team/adhd-therapist';
 import Internships from './pages/join-our-team/internships'; // ✅ New import for ADHD Therapist job
 import Contact from './pages/contact';//
-
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
   return (
     <div className="bg-white">
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 py-16 bg-brand-100">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-6 px-6 mt-20 md:px-12 py-10 bg-brand-100">
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl  text-gray-900 mb-4">
             Welcome to Mindful Way Therapy
@@ -35,10 +35,10 @@ function Home() {
           />
         </div>
 
-        <div className="md:w-1/2 space-y-6">
-          <h2 className="text-3xl  text-gray-900">About Us</h2>
+        <div className="md:w-1/2 space-y-4">
+          <h2 className="text-3xl text-center text-gray-900">About Us</h2>
 
-          <h3 className="text-xl  text-sky-700">Our Approach</h3>
+          <h3 className="text-xl font-semibold text-sky-700">Our Approach</h3>
           <p className="text-gray-700 leading-relaxed">
             We specialize in working with neurodivergent individuals, including those with autism, ADHD, and other neurodiverse conditions. Our therapists are trained to understand the unique challenges and strengths of neurodivergent clients.
           </p>
@@ -46,8 +46,8 @@ function Home() {
             At Mindful Way Therapy, we're dedicated to providing compassionate and effective therapy services to individuals in the Seattle area and beyond...
           </p>
 
-          <h3 className="text-xl  text-sky-700">Why Choose Us?</h3>
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
+          <h3 className="text-xl font-semibold text-sky-700">Why Choose Us?</h3>
+          <ul className="list-disc list-outside ml-6 text-gray-700 mb-6 space-y-2">
             <li>Personalized and affirming therapy tailored to your unique needs</li>
             <li>Experienced therapists who understand the challenges you're facing</li>
             <li>Safe and supportive environment where you can explore your thoughts and feelings</li>
