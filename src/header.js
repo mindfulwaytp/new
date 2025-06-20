@@ -77,44 +77,35 @@ export default function Header() {
           </nav>
 
           {/* Mobile Nav */}
-            {mobileMenuOpen && (
-              <div className="fixed inset-0 bg-white text-black z-50 flex flex-col px-6 py-8 space-y-6 text-lg font-medium overflow-y-auto">
-                <button
-                  className="absolute top-4 right-4 text-3xl"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                >
-                  &times;
-                </button>
-
-                {navItems.map((item, idx) =>
-                  item.path.startsWith('/') ? (
-                    <Link
-                      key={idx}
-                      to={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`border-b pb-3 border-gray-200 ${
-                        location.pathname === item.path
-                          ? 'text-sky-700 font-semibold'
-                          : ''
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <a
-                      key={idx}
-                      href={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="border-b pb-3 border-gray-200"
-                    >
-                      {item.label}
-                    </a>
-                  )
-                )}
-              </div>
-            )}
-
+          {mobileMenuOpen && (
+            <nav className="flex flex-col mt-6 gap-4 md:hidden text-sm font-semibold font-serif">
+              {navItems.map((item, idx) =>
+                item.path.startsWith('/') ? (
+                  <Link
+                    key={idx}
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`${
+                      location.pathname === item.path
+                        ? 'underline underline-offset-4'
+                        : ''
+                    } hover:text-sky-200 transition`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={idx}
+                    href={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="hover:text-sky-200 transition"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
+            </nav>
+          )}
         </div>
       </div>
     </header>

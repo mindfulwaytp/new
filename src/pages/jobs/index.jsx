@@ -31,10 +31,10 @@ function JobBoard() {
     <div className="px-4 py-12 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-5xl font-light mb-6">Employment & Internship Opportunities</h1>
+        <h1 className="text-4xl md:text-5xl font-light mb-6">Employment & Internship Opportunities</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
-          Mindful Way Therapy is looking for highly qualified master's level mental health clinicians, of all specialties
-          (LMFT/A, LMHC/A, LICSW/LSWAIC), and student interns, to join our expanding group practice. By working at Mindful Way, you will be part
+          Mindful Way Therapy is looking for highly qualified master's level mental health clinicians of all specialties
+          (LMFT/A, LMHC/A, LICSW/LSWAIC), as well as masters level student interns, to join our expanding group practice. By working at Mindful Way, you will be part
           of a team of clinicians who are excited to work with historically underserved clinical populations, including the
           LGBTQ+ community, BIPOC, and neurodivergent individuals.
         </p>
@@ -71,7 +71,7 @@ function JobBoard() {
           {jobListings.map((job) => (
             <Link
               key={job.id}
-              to={`/jobs/${job.id}`}
+              to={`/join-our-team/${job.id}`}
               className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-md transition"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-1">{job.title}</h3>
