@@ -31,7 +31,7 @@ function JobBoard() {
     <div className="px-4 py-12 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl  mb-6">Employment & Internship Opportunities</h1>
+        <h1 className="text-3xl md:text-4xl text-sky-700 mb-6">Employment & Internship Opportunities</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
           Mindful Way Therapy is looking for highly qualified master's level mental health clinicians of all specialties
           (LMFT/A, LMHC/A, LICSW/LSWAIC), as well as masters level student interns, to join our expanding group practice. By working at Mindful Way, you will be part
@@ -45,7 +45,7 @@ function JobBoard() {
             className="w-full h-auto rounded-lg shadow-md object-cover"
           />
         </div>
-        <h1 className="text-3xl md:text-5xl  mt-8 mb-6">About Mindful Way Therapy</h1>
+        <h1 className="text-3xl md:text-4xl text-sky-700 mt-8 mb-6">About Mindful Way Therapy</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto">
             Mindful Way Therapy is a queer-owned group practice in Seattle, WA, in the heart of the University District. We offer individual, family and couples therapy, as well as ADHD and Autism evaluations, as well as gender-affirming care letters for those seeking medical transition interventions. 
             

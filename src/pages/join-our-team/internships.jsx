@@ -24,7 +24,7 @@ export default function Internships() {
             </p>
 
       <h3 className="text-xl  text-sky-700 mt-8 mb-2">We Value Candidates Who:</h3>
-        <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
+        <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-1">
             <li>Have a passion for learning and professional development</li>
             <li>Are interested and have a passioon for working with diverse and underserved communities</li>
             <li>Bring a collaborative mindset and willingess to contrinute to a dynamic team enviroment.</li>
@@ -32,14 +32,14 @@ export default function Internships() {
         </ul>
 
       <h3 className="text-xl  text-sky-700 mt-8 mb-2">As a Student-Intern, You Will:</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
+      <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Provide direct counseling services, including group and/or couples and family therapy</li>
         <li>Participate in weekly individual and/or dyadic supervision with our owner, Ryne Evans, MA, LMFT or our Clinical Supervisor, Troy Weber, MA, LMFT</li>              
         <li>Complete documentation including: intakes, treatment plans and weekly progress notes.</li>
         </ul>
 
       <h3 className="text-xl  text-sky-700 mt-8 mb-2">Benefits</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
+      <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Training opportunities, including ADHD assessments (open to students during their last 6 months of placement)</li>
         <li>All marketing to ensure a steady stream of referrals, and front-office support!</li>
         <li>Weekly supervision (individual and/or dyadic)</li>
@@ -47,7 +47,7 @@ export default function Internships() {
       </ul>
 
       <h3 className="text-xl  text-sky-700 mt-8 mb-2">Hour Expectations and Requirements</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
+      <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Practicum: 3-5 clients per week with a minimum of 7 hours of availability.</li>
         <li>Internship: 12-15 clients per week with 15-20 hours of availability.</li>
         <li className="italic ml-4">These hour requirements help to account for training, shadowing, our business needs and cancellations during your internship experience.</li>
@@ -55,7 +55,7 @@ export default function Internships() {
       </ul>
 
       <h3 className="text-xl  text-sky-700 mt-8 mb-2">Location</h3>
-      <ul className="list-disc list-outside pl-4 text-gray-700 mb-6 space-y-1">
+      <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-1">
         <li>Hybrid</li>
       </ul>
 
