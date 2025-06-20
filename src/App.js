@@ -5,10 +5,10 @@ import Home from './Home';
 import ProviderProfile from './pages/ProviderProfile'; // ✅ Update path if needed
 import ProviderDirectory from './pages/ProviderDirectory'; // ✅ THIS IS CORRECT
 import Neurodiversity from './pages/Neurodiversity';
-import JobBoard from './pages/jobs/index';
-import LGBTQTherapistJob from './pages/jobs/lgbtq-therapist';
-import ADHDTherapistJob from './pages/jobs/adhd-therapist';
-import Internships from './pages/jobs/internships'; // ✅ New import for ADHD Therapist job
+import JobBoard from './pages/join-our-team/index';
+import LGBTQTherapistJob from './pages/join-our-team/lgbtq-therapist';
+import ADHDTherapistJob from './pages/join-our-team/adhd-therapist';
+import Internships from './pages/join-our-team/internships'; // ✅ New import for ADHD Therapist job
 import Contact from './pages/contact';//
 
 

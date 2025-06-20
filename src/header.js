@@ -9,7 +9,7 @@ export default function Header() {
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Providers', path: '/providers' },
-    { label: 'Work With Us', path: '/jobs' },
+    { label: 'Join Our Team', path: '/join-our-team' },
     { label: 'Neurodiversity', path: '/neurodiversity' },
     { label: 'Services', path: '#services' },
     { label: 'Get Started', path: '/contact' },
