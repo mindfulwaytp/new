@@ -11,6 +11,8 @@ import ADHDTherapistJob from './pages/join-our-team/adhd-therapist';
 import Internships from './pages/join-our-team/internships'; // ✅ New import for ADHD Therapist job
 import Contact from './pages/contact';//
 import ScrollToTop from './components/ScrollToTop';
+import NeurodiversityResources from './pages/NeurodiversityResources';
+
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
         <Route path="/join-our-team/internships" element={<Internships />} />
         <Route path="/join-our-team" element={<JobBoard />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/neurodiversity/resources" element={<NeurodiversityResources />} />
       </Routes>
     </div>
   );

@@ -1,7 +1,9 @@
 import React from 'react';
 import balloons from '../assets/balloons.avif'; // adjust path if needed
+import { Link } from 'react-router-dom';
 import { ReactComponent as Autism1 } from '../assets/autism1.svg';
 import { ReactComponent as Autism2 } from '../assets/autism2.svg';
+import autism3 from '../assets/images/autism3.png'; // ✅ correct path
 
 function Neurodiversity() {
   return (
@@ -36,14 +38,14 @@ function Neurodiversity() {
     </p>
   </section>
 
-  <section className="bg-white py-20 px-4 md:px-10">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-    
-    {/* Column 1: Neurodivergent Affirming Therapy */}
+<section className="bg-white py-20 px-4 md:px-10">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 items-start">
+
+    {/* Row 1, Column 1 */}
     <div className="flex flex-col space-y-6">
       <div className="flex items-start gap-4">
         <Autism1 className="w-[135px] h-[137px] shrink-0" />
-        <h3 className="text-xl  text-gray-900 leading-snug">
+        <h3 className="text-xl text-gray-900 leading-snug">
           Neurodivergent Affirming<br />Therapy
         </h3>
       </div>
@@ -55,25 +57,46 @@ function Neurodiversity() {
       </p>
     </div>
 
-    {/* Column 2: ADHD & Autism Evaluations */}
+    {/* Row 1, Column 2 */}
     <div className="flex flex-col space-y-6">
       <div className="flex items-start gap-4">
         <Autism2 className="w-[135px] h-[137px] shrink-0" />
-        <h3 className="text-xl  text-gray-900 leading-snug">
+        <h3 className="text-xl text-gray-900 leading-snug">
           ADHD & Autism Evaluations
         </h3>
       </div>
       <p className="text-gray-700 leading-relaxed text-[17px]">
         Our Neurodivergent Affirming Assessments provide a comprehensive, respectful approach
-        to understanding ADHD, Autism, and other neurodivergent traits. Through our Brain Style Profile,
+        to understanding ADHD, Autism, and other neurodivergent traits. Through our evaluations,
         we offer insights that highlight strengths and identify areas where tailored support can enhance
-        well-being. These assessments focus on understanding individual differences without pathologizing,
-        allowing clients and families to gain clarity and practical tools that fit naturally into their lives.
+        well-being and help individuals and families to gain clarity and practical tools that fit naturally into their lives.
+      </p>
+    </div>
+
+    {/* Row 2, Column 1 */}
+    <div className="flex flex-col space-y-2">
+      <div className="flex items-start gap-2">
+        <Link to="/neurodiversity/resources">
+          <img src={autism3} alt="Resource Library icon" className="w-[135px] h-[137px] shrink-0" />
+        </Link>
+        <h3 className="text-xl text-gray-900 leading-snug">
+          Neurodiversity Resources
+        <div className="text-sm text-gray-600 mt-1 mt-8">
+          <p>Click the image to be directed to our resource page</p>
+        </div>
+        </h3>
+
+      </div>
+      <p className="text-gray-700 leading-relaxed text-[17px]">
+        Explore our curated library of books, articles, and tools created by and for neurodivergent individuals.
+        Whether you’re looking to learn more about autism, ADHD, or affirming care practices,
+        these resources offer guidance, validation, and connection for individuals, families, and professionals alike.
       </p>
     </div>
 
   </div>
 </section>
+
 
 
 </div>
